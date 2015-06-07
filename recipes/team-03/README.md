@@ -13,7 +13,7 @@ Step 1:
 Make an API call to Youtube for a search list that gets the video ids
 
 ```
-url = "https://www.googleapis.com/youtube/v3/search?part=id&maxResults=50&order=viewCount&type=video&key=AIzaSyDMg-eb-hHji1WEF_H_je1SXSt9HsMeofU"
+url = "https://www.googleapis.com/youtube/v3/search?part=id&maxResults=50&order=viewCount&type=video&key=[YOUR_API_KEY_HERE]"
 r = requests.get(url)
 struc = r.json()
 ```
@@ -22,7 +22,7 @@ Step 2:
 Take the results from that API call's results and put them in an API call for a video list that can get more detailed information of the videos
 
 ```
-url = "https://www.googleapis.com/youtube/v3/videos?part=id%2Cstatistics%2Csnippet%2CcontentDetails&maxResults=50&key=AIzaSyDMg-eb-hHji1WEF_H_je1SXSt9HsMeofU"
+url = "https://www.googleapis.com/youtube/v3/videos?part=id%2Cstatistics%2Csnippet%2CcontentDetails&maxResults=50&key=[YOUR_API_KEY_HERE]"
 idList = []
 for x in result[u'items']:
     idList.append(x[u'id'][u'videoId'])
@@ -48,7 +48,7 @@ import requests
 
 results = []
 videos = []
-url = "https://www.googleapis.com/youtube/v3/search?part=id&maxResults=50&order=viewCount&type=video&key=AIzaSyDMg-eb-hHji1WEF_H_je1SXSt9HsMeofU"
+url = "https://www.googleapis.com/youtube/v3/search?part=id&maxResults=50&order=viewCount&type=video&key=[YOUR_API_KEY_HERE]"
 r = requests.get(url)
 struc = r.json()
 results.append(struc)
@@ -56,7 +56,7 @@ while u'nextPageToken' in struc:
     r = requests.get(url + '&pageToken=' + struc[u'nextPageToken'])
     struc = r.json()
     results.append(struc)
-url = "https://www.googleapis.com/youtube/v3/videos?part=id%2Cstatistics%2Csnippet%2CcontentDetails&maxResults=50&key=AIzaSyDMg-eb-hHji1WEF_H_je1SXSt9HsMeofU"
+url = "https://www.googleapis.com/youtube/v3/videos?part=id%2Cstatistics%2Csnippet%2CcontentDetails&maxResults=50&key=[YOUR_API_KEY_HERE]"
 for result in results:
     idList = []
     for x in result[u'items']:
