@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sat Jun 06 21:25:06 2015
-
-@author: todd
-"""
-
 import requests
 
 results = []
